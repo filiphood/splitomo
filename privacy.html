@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Splitomo</title>
+    <meta name="description" content="Splitomo's Privacy Policy - How we protect your data and what information we collect.">
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables for easy customization */
+        :root {
+            --main-color: #248A3D;
+            --button-color: #248A3D;
+            --button-highlight: #000000;
+            --link-color: #000000;
+            --link-highlight: #248A3D;
+            --main-text: #000000;
+            --secondary-text: #7f8c8d;
+            --bg-main: #FFFFFF;
+            --bg-secondary: #F5F5F5;
+            --logo-color-light: #000000;
+            --logo-color-dark: #000000;
+            --border-color: #e9ecef;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-light: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--main-text);
+            background: var(--bg-main);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--logo-color-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--link-highlight);
+        }
+
+        .back-btn {
+            background: var(--button-color);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--button-highlight);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 8rem 2rem 4rem;
+            min-height: 100vh;
+        }
+
+        .content-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--main-text);
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary-text);
+        }
+
+        .policy-content {
+            background: var(--bg-secondary);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .policy-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .policy-section h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--main-text);
+            margin-bottom: 1rem;
+        }
+
+        .policy-section p {
+            color: var(--secondary-text);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .policy-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-section li {
+            color: var(--secondary-text);
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: var(--main-text);
+        }
+
+        .contact-info {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: var(--link-highlight);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            color: var(--main-text);
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--link-highlight);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--button-color);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--button-highlight);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--secondary-text);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2.5rem;
+            }
+
+            .policy-content {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://via.placeholder.com/32x32/2ecc71/ffffff?text=S" alt="Splitomo" class="logo-icon">
+                Splitomo
+            </a>
+            <ul class="nav-links">
+                <li><a href="mailto:filiphood.creative@gmail.com">Contact</a></li>
+                <li><a href="terms.html">Terms of Use</a></li>
+                <li><a href="index.html" class="back-btn">Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-container">
+            <div class="page-header">
+                <h1 class="page-title">Privacy Policy</h1>
+                <p class="page-subtitle">How we protect your privacy and handle your data</p>
+            </div>
+
+            <div class="policy-content">
+                <p class="last-updated">Last updated: January 9, 2025</p>
+
+                <div class="policy-section">
+                    <h2>1. Introduction</h2>
+                    <p>At Splitomo, we are committed to protecting your privacy. This policy outlines what we collect (very little), how we use it, and how we prioritize security and simplicity in our app.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>2. Account Data</h2>
+                    <p>To split bills with friends, we collect minimal account information:</p>
+                    <ul>
+                        <li><span class="highlight">Email address</span> – for account creation and login</li>
+                        <li><span class="highlight">Display name</span> – to identify you to friends in shared bills</li>
+                        <li><span class="highlight">Friend connections</span> – to enable bill sharing between users</li>
+                    </ul>
+                    <p>We <span class="highlight">do not</span> collect phone numbers, addresses, or other personal information beyond what's necessary for the app to function.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>3. Receipt Processing</h2>
+                    <p>When you scan receipts:</p>
+                    <ul>
+                        <li><span class="highlight">Receipt images</span> are processed using AI to extract bill items</li>
+                        <li>Images are <span class="highlight">automatically deleted immediately</span> after processing</li>
+                        <li>Only the extracted text data (items, prices) is stored to create your bill splits</li>
+                        <li>We use secure AI processing services to analyze receipts</li>
+                    </ul>
+                    <p>We never permanently store your receipt images or use them for any purpose other than extracting bill information.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>4. Bill and Split Data</h2>
+                    <p>We store bill information to enable sharing and tracking:</p>
+                    <ul>
+                        <li><span class="highlight">Bill details</span> – restaurant name, items, prices, dates</li>
+                        <li><span class="highlight">Split calculations</span> – who owes what to whom</li>
+                        <li><span class="highlight">Payment status</span> – to track settled bills</li>
+                    </ul>
+                    <p>This data is only accessible to users who were part of the original bill split.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>5. Third-Party Services</h2>
+                    <ul>
+                        <li><span class="highlight">Firebase Authentication</span> – secure user login and account management</li>
+                        <li><span class="highlight">AI Processing Services</span> – secure receipt text extraction</li>
+                        <li><span class="highlight">Firebase Firestore</span> – encrypted data storage for bills and user data</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>6. Data Security</h2>
+                    <p>We take your privacy seriously:</p>
+                    <ul>
+                        <li>All communication between the app and server is <span class="highlight">encrypted</span></li>
+                        <li>Receipt images are <span class="highlight">never stored permanently</span></li>
+                        <li>User data is stored securely using industry-standard encryption</li>
+                        <li>Access to your data is limited to authorized users only</li>
+                    </ul>
+                </div>
+
+                <div class="policy-section">
+                    <h2>7. Your Rights</h2>
+                    <p>You have the right to:</p>
+                    <ul>
+                        <li><span class="highlight">Access</span> your data – view what information we have about you</li>
+                        <li><span class="highlight">Delete</span> your account and all associated data</li>
+                        <li><span class="highlight">Export</span> your bill history and splits</li>
+                        <li><span class="highlight">Correct</span> any inaccurate information</li>
+                    </ul>
+                    <p>To exercise these rights, contact us at the email below.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>8. Future Analytics</h2>
+                    <p>In the future, we may use anonymized analytics tools like <span class="highlight">Firebase Crashlytics</span> and <span class="highlight">PostHog</span> to help us improve the app and understand usage patterns. These tools help us identify bugs, performance issues, and improve features — never for advertising or profiling.</p>
+                    <p>If and when these tools are added, this policy will be updated, and we will remain transparent about what is collected. No personally identifiable data will be collected without your consent.</p>
+                </div>
+
+                <div class="policy-section">
+                    <h2>9. Contact Us</h2>
+                    <div class="contact-info">
+                        <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                        <p><a href="mailto:filiphood.creative@gmail.com">filiphood.creative@gmail.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <a href="index.html" class="logo">
+                    <img src="https://via.placeholder.com/32x32/2ecc71/ffffff?text=S" alt="Splitomo" class="logo-icon">
+                    Splitomo
+                </a>
+                <ul class="footer-links">
+                    <li><a href="mailto:filiphood.creative@gmail.com">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://twitter.com/filip_hood"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:filiphood.creative@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Splitomo. Made with ☕️ by Filip.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+    <script src="app-config.js"></script>
+</body>
+</html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Splitomo - Split bills, not friendships</title>
+    <meta name="description" content="Split bills instantly with AI-powered receipt scanning. Never fight with friends about money again.">
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables for easy customization */
+        :root {
+            /* --primary-color: #2ecc71;
+            --primary-dark: #248A3D;
+            --text-dark: #2c3e50;
+            --text-gray: #7f8c8d;
+            --text-light: #ecf0f1;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-color: #e9ecef;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-light: 0 5px 15px rgba(0,0,0,0.08); */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--link-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--link-highlight);
+        }
+
+        .download-btn {
+            background: var(--button-color);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: var(--button-highlight);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            /* background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-white) 100%); */
+            background: var(--bg-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--main-text);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .download-ios-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--button-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .download-ios-btn:hover {
+            background: var(--button-highlight);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .download-ios-btn i {
+            font-size: 1.3rem;
+        }
+
+        .hero-phone {
+            text-align: right;
+        }
+
+        .phone-mockup {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(var(--shadow));
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--bg-main);
+        }
+
+        .features-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .features-header {
+            text-align: left;
+            margin-bottom: 4rem;
+        }
+
+        .features-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--main-text);
+        }
+
+        .features-subtitle {
+            font-size: 1.25rem;
+            color: var(--secondary-text);
+            line-height: 1.5;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-card {
+            text-align: center;
+        }
+
+        .feature-card-inner {
+            padding: 0.75rem;
+            border-radius: 20px;
+            background: var(--bg-secondary);
+            transition: transform 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card-inner:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-image {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            display: block;
+            margin: 0;
+            vertical-align: bottom;
+        }
+
+        .feature-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--main-color);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--main-text);
+            margin: 0;
+        }
+
+        .feature-card p {
+            color: var(--secondary-text);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: var(--bg-main);
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-card {
+            background: var(--bg-secondary);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+
+        .about-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--main-text);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            color: var(--secondary-text);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-signature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .signature-info h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--main-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .signature-info p {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin: 0;
+        }
+
+        .signature-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .about-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--bg-light);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            color: var(--main-text);
+            padding: 3rem 2rem 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--link-highlight);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--button-color);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--button-highlight);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: var(--secondary-text);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-phone {
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card {
+                padding: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo" id="nav-logo">
+                <img src="https://via.placeholder.com/32x32/2ecc71/ffffff?text=S" alt="Splitomo" class="logo-icon" id="nav-logo-icon">
+                Splitomo
+            </a>
+            <ul class="nav-links">
+                <li><a href="mailto:filiphood.creative@gmail.com">Contact</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Use</a></li>
+                <li><a href="#download" class="download-btn">Download</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 id="hero-title">Never fight with friends about money again</h1>
+                <p class="subtitle" id="hero-subtitle">Split bills instantly with AI-powered receipt scanning. Just snap a photo, add friends, and let Splitomo do the math.</p>
+                <a href="#download" class="download-ios-btn" id="download-ios-btn">
+                    <i class="fab fa-apple"></i>
+                    Download for iOS
+                </a>
+            </div>
+            <div class="hero-phone">
+                <img src="https://via.placeholder.com/300x600/2ecc71/ffffff?text=iPhone+Mockup" alt="Splitomo App" class="phone-mockup" id="hero-phone-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="features-container">
+            <div class="features-header">
+                <h2 class="features-title" id="features-title">See how it works</h2>
+                <p class="features-subtitle" id="features-subtitle">Simple and powerful</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-card-inner">
+                        <img src="https://via.placeholder.com/200x400/f8f9fa/2ecc71?text=Screen+1" alt="Scan Receipt" class="feature-image">
+                    </div>
+                    <div class="feature-content">
+                        <i class="fas fa-camera feature-icon"></i>
+                        <h3 id="feature-1-title">Snap a Photo</h3>
+                    </div>
+                    <p id="feature-1-desc">Take a picture of any receipt and let AI extract all items automatically</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-inner">
+                        <img src="https://via.placeholder.com/200x400/f8f9fa/2ecc71?text=Screen+2" alt="Add Friends" class="feature-image">
+                    </div>
+                    <div class="feature-content">
+                        <i class="fas fa-users feature-icon"></i>
+                        <h3 id="feature-2-title">Add Friends</h3>
+                    </div>
+                    <p id="feature-2-desc">Add who was there and assign items to each person with a simple tap</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-inner">
+                        <img src="https://via.placeholder.com/200x400/f8f9fa/2ecc71?text=Screen+3" alt="Share Results" class="feature-image">
+                    </div>
+                    <div class="feature-content">
+                        <i class="fas fa-share-alt feature-icon"></i>
+                        <h3 id="feature-3-title">Share Results</h3>
+                    </div>
+                    <p id="feature-3-desc">Generate a beautiful PDF showing who owes what and share it instantly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-container">
+            <div class="about-card">
+                <div class="about-content">
+                    <h2 id="about-title">
+                        Hi, I'm Filip 👋
+                    </h2>
+                    <p id="about-text-1">I built Splitomo to help me stop those awkward money conversations with friends and push myself to create something that actually solves a real problem.</p>
+                    <p id="about-text-2">I wanted to build a bill splitting experience that felt <strong>incredible</strong> to use so great design and interaction was something I put a lot of time into.</p>
+                    <p id="about-text-3">Hopefully you feel that when you use it and my app helps you as much as it's helped me :)</p>
+                    
+                    <div class="about-signature">
+                        <img src="https://via.placeholder.com/50x50/2ecc71/ffffff?text=F" alt="Filip" class="signature-avatar" id="signature-avatar">
+                        <div class="signature-info">
+                            <h3 id="signature-name">Filip</h3>
+                            <p id="signature-title">Splitomo creator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <a href="#" class="logo" id="footer-logo">
+                    <img src="https://via.placeholder.com/32x32/2ecc71/ffffff?text=S" alt="Splitomo" class="logo-icon" id="footer-logo-icon">
+                    Splitomo
+                </a>
+                <ul class="footer-links">
+                    <li><a href="mailto:filiphood.creative@gmail.com">Contact</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://twitter.com/filip_hood" id="twitter-link"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:filiphood.creative@gmail.com" id="email-link"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-copyright">&copy; 2025 Splitomo. Made with ☕️ by Filip.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+    <script src="app-config.js"></script>
+</body>
+</html>
